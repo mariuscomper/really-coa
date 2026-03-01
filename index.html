@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>„Really, coa'?" — Ce dezvăluie două cuvinte despre cum vorbim cu mașinile</title>
+
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="„Really, coa'?" — Ce dezvăluie două cuvinte despre cum vorbim cu mașinile">
+    <meta property="og:description" content="O analiză multi-disciplinară a unui post de Facebook despre code-switching cu un LLM. Din sociolingvistică, psihanaliză, antropologie, psihologie evoluționistă, teoria critică, neuroștiință și filosofia minții.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ro_RO">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #f5f2ed;
+            --bg-secondary: #ebe6dd;
+            --bg-dark: #141824;
+            --bg-card: #ffffff;
+            --text-primary: #1a1e2e;
+            --text-secondary: #3d3d4d;
+            --text-muted: #6a6a7a;
+            --accent: #8b3a3a;
+            --accent-light: #a64d4d;
+            --accent-deep: #6b2a2a;
+            --accent-gold: #b08830;
+            --accent-gold-light: #c9a03a;
+            --border: #d8d2c8;
+            --shadow: 0 2px 20px rgba(26, 30, 46, 0.05);
+            --shadow-lg: 0 8px 40px rgba(26, 30, 46, 0.08);
+            --max-width: 720px;
+            --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 18px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-gold));
+            z-index: 1000;
+            transition: width 0.1s linear;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-dark);
+            color: #fff;
+            padding: 7rem 2rem 5.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 25% 50%, rgba(139, 58, 58, 0.25) 0%, transparent 55%),
+                        radial-gradient(ellipse at 75% 40%, rgba(176, 136, 48, 0.12) 0%, transparent 55%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 58, 58, 0.4), rgba(176, 136, 48, 0.3), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            font-family: var(--font-mono);
+            font-weight: 500;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold-light);
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+        }
+
+        .hero-specimen {
+            font-family: var(--font-mono);
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-specimen em {
+            color: rgba(201, 160, 58, 0.7);
+            font-style: normal;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero .subtitle {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 400;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Table of Contents */
+        .toc-container {
+            max-width: var(--max-width);
+            margin: -2rem auto 3rem;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .toc {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .toc-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .toc li {
+            counter-increment: toc-counter;
+            margin-bottom: 0.4rem;
+        }
+
+        .toc li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            padding: 0.3rem 0;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .toc li a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--accent);
+            font-weight: 500;
+            min-width: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .toc li a:hover {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        /* Epigraph */
+        .epigraph {
+            max-width: var(--max-width);
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+        }
+
+        .epigraph-inner {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 2rem 2.2rem;
+            position: relative;
+        }
+
+        .epigraph-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .epigraph-text {
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            font-style: italic;
+        }
+
+        .epigraph-text .username {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .epigraph-text .quoted {
+            display: block;
+            margin-top: 0.8rem;
+            font-style: normal;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent);
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            display: block;
+            opacity: 0.7;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 2rem 0 0.8rem;
+            color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Pullquote */
+        .pullquote {
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem 0 1.5rem 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .pullquote p {
+            font-family: var(--font-serif);
+            font-size: 1.12rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .pullquote .attribution {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-style: normal;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            display: block;
+        }
+
+        /* Insight Card */
+        .insight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .insight-card .card-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+
+        .insight-card p {
+            font-size: 0.93rem;
+            margin-bottom: 0;
+        }
+
+        .insight-card p + p {
+            margin-top: 0.8rem;
+        }
+
+        /* Key Term */
+        .key-term {
+            background: linear-gradient(180deg, transparent 60%, rgba(139, 58, 58, 0.12) 60%);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Mechanism List */
+        .mechanism-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .mechanism-list li {
+            padding: 0.8rem 0 0.8rem 1.8rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.93rem;
+            border-bottom: 1px solid rgba(216, 210, 200, 0.5);
+        }
+
+        .mechanism-list li:last-child {
+            border-bottom: none;
+        }
+
+        .mechanism-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.15rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        /* Flow Diagram */
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .flow-step {
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .flow-arrow {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(139, 58, 58, 0.05), rgba(176, 136, 48, 0.05));
+            border: 1px solid rgba(139, 58, 58, 0.12);
+            border-radius: 10px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        .highlight-box p + p {
+            margin-top: 0.8rem;
+        }
+
+        /* Specimen block - for linguistic examples */
+        .specimen {
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            line-height: 1.7;
+        }
+
+        .specimen .label {
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold-light);
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .specimen .highlight {
+            color: var(--accent-gold-light);
+        }
+
+        .specimen .dim {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* Section divider */
+        .section-divider {
+            text-align: center;
+            margin: 4rem 0;
+            color: var(--accent);
+            font-size: 1rem;
+            letter-spacing: 0.5em;
+            opacity: 0.4;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.45);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.75rem;
+            font-family: var(--font-body);
+        }
+
+        .footer .footer-title {
+            font-family: var(--font-serif);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 100;
+            font-size: 1.1rem;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            html { font-size: 16px; }
+            .hero { padding: 4.5rem 1.5rem 3.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-meta { flex-direction: column; gap: 0.5rem; }
+            .hero-specimen { font-size: 1.2rem; }
+            .toc { padding: 1.5rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.1rem; }
+            .pullquote { padding-left: 1.2rem; }
+            .pullquote p { font-size: 1.02rem; }
+            .flow { flex-direction: column; }
+            .insight-card { padding: 1.3rem 1.5rem; }
+            .specimen { padding: 1.3rem 1.5rem; }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Print */
+        @media print {
+            .progress-bar, .back-to-top, .toc-container { display: none; }
+            .hero { background: #333; }
+            .section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Sociolingvistică &bull; Psihanaliză &bull; Antropologie &bull; Psihologie evoluționistă &bull; Teoria critică &bull; Neuroștiință</div>
+            <div class="hero-specimen">"<em>Really</em>, <em>coa'</em>?"</div>
+            <h1>Ce dezvăluie două cuvinte despre cum vorbim cu mașinile</h1>
+            <p class="subtitle">Un post de Facebook. Nouă cuvinte în două limbi. O referință academică. Sub ele: straturi geologice despre identitate, putere lingvistică, singurătate și nașterea unor forme de comunicare fără precedent.</p>
+            <div class="hero-meta">
+                <span>&#9679; Analiză multi-disciplinară</span>
+                <span>&#9679; ~35 min lectură</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="toc-container">
+        <div class="toc">
+            <div class="toc-title">&#9776; Cuprins</div>
+            <ol>
+                <li><a href="#specimen">Specimenul: un post de Facebook</a></li>
+                <li><a href="#linguistics">Sociolingvistică: ce știe și ce nu știe citatul</a></li>
+                <li><a href="#mirror">Psihologie cognitivă: LLM-ul ca oglindă proiectivă</a></li>
+                <li><a href="#bourdieu">Sociologia limbii: capitalul ascuns în fiecare cuvânt</a></li>
+                <li><a href="#politics">Științe politice: limba ca câmp de luptă</a></li>
+                <li><a href="#anthropology">Antropologie: nașterea unui pidgin digital</a></li>
+                <li><a href="#evopsy">Psihologie evoluționistă: tribul fantomă</a></li>
+                <li><a href="#psychoanalysis">Psihanaliză: ce e „coa'"</a></li>
+                <li><a href="#shame">Sociologia rușinii: apologia preventivă</a></li>
+                <li><a href="#neuro">Neuroștiință: ce se întâmplă în creier</a></li>
+                <li><a href="#critical">Teoria critică: LLM-ul ca spațiu neocolonial</a></li>
+                <li><a href="#phenomenology">Fenomenologie: libertate fără validare</a></li>
+                <li><a href="#goffman">Performanța: paradoxul postării</a></li>
+                <li><a href="#autopsy">Autopsie: de ce miroase a output</a></li>
+                <li><a href="#synthesis">Sinteza finală</a></li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Epigraph: the original post -->
+    <div class="epigraph">
+        <div class="epigraph-inner">
+            <div class="epigraph-label">Postarea originală — Facebook, 2025</div>
+            <div class="epigraph-text">
+                <span class="username">Mirel Axinte</span> scrie:
+                <br>Adică "Really, coa'?" (cum vorbesc eu cu LLM-urile)
+                <span class="quoted">"Mixarea permanentă română-engleză nu este simplă afectare. Conform teoriei code-switching-ului (Myers-Scotton, 1993), trecerea la o altă limbă în cadrul unei conversații semnalează schimbarea registrului emoțional, a poziției identitare sau a nivelului de intimitate."</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="content">
+
+        <!-- SECTION: The Specimen -->
+        <section class="section fade-in" id="specimen">
+            <span class="section-number">01</span>
+            <h2>Specimenul: un post de Facebook</h2>
+
+            <p>Postarea are 239 de caractere. Cinci reacții, un comentariu. Un bărbat de vârstă medie, cu ochelari, cu aspectul intelectualului din avatarul de profil, scrie despre cum vorbește cu un model lingvistic. Pare o observație măruntă — o curiozitate de luni dimineață, un gând aruncat în feedul nimănui.</p>
+
+            <p>Nu e. Sub suprafața ei se intersectează cel puțin o duzină de câmpuri disciplinare, de la sociolingvistică la psihanaliză, de la psihologia evoluționistă la teoria critică postcolonială. Două cuvinte în două limbi — „really, coa'?" — condensează tensiuni despre identitate, putere, singurătate și relația noastră cu mașinile pe care nici o singură disciplină nu le poate epuiza.</p>
+
+            <p>Ce urmează e o tentativă de a le epuiza pe toate simultan.</p>
+        </section>
+
+        <!-- SECTION: Linguistics -->
+        <section class="section fade-in" id="linguistics">
+            <span class="section-number">02</span>
+            <h2>Sociolingvistică: ce știe și ce nu știe citatul</h2>
+
+            <p>Postarea invocă <span class="key-term">Markedness Model</span> al lui Carol Myers-Scotton (1993), iar invocarea e corectă în principiu: code-switching-ul — trecerea de la o limbă la alta în cadrul aceleiași conversații — funcționează ca <strong>negociere a contractului social</strong> între vorbitori. Alegi limba „marcată" (neașteptată) ca să semnalizezi ceva interlocutorului: schimbare de registru, de poziție socială, de nivel de intimitate. Interlocutorul decodifică semnalul pe baza unui set de norme conversaționale partajate.</p>
+
+            <p>Problema e că teoria presupune un <strong>receptor competent</strong>. Myers-Scotton lucra cu comunități bilingve din Kenya, unde ambii participanți la conversație cunoșteau ambele limbi, aveau norme sociale comune și puteau interpreta semnificația alegerii lingvistice. Un LLM nu are norme comune cu tine. Nu decodifică „coa'" ca marker de intimitate masculină românească. Procesează tokens, calculează probabilități, generează un răspuns statistic plauzibil.</p>
+
+            <div class="pullquote">
+                <p>Teoria e citată corect dar aplicată într-un vid pragmatic — nu există receptor competent pentru semnalul sociolingvistic. Ceea ce ridică o întrebare mai interesantă: pentru cine e de fapt code-switching-ul ăsta?</p>
+            </div>
+
+            <h3>Ce lipsește din citat</h3>
+
+            <p>Un lingvist la curent cu câmpul ar fi adus cel puțin încă trei referințe esențiale. Prima: <strong>John Gumperz</strong> (1982), care e de fapt fondatorul studiului interacțional al code-switching-ului și care vorbea despre <span class="key-term">indicii de contextualizare</span> — semnale subtile prin care vorbitorii ghidează interpretarea enunțurilor. Fără un interlocutor capabil să recunoască indiciile, mecanismul se prăbușește.</p>
+
+            <p>A doua: <strong>François Grosjean</strong> (1989, 2010), cel care a formulat principiul că bilingvul nu e „doi monolingvi într-o singură persoană" ci un vorbitor cu un <strong>sistem lingvistic integrat</strong>. Asta schimbă complet cadrul: „really, coa'?" nu e alternare între două sisteme separate, ci extragere din același repertoriu unificat.</p>
+
+            <p>A treia, și cea mai relevantă pentru fenomenul descris: <strong>translanguaging</strong> (García & Li Wei, 2014) — conceptul că bilingvii nu „switch-uiesc" între limbi, ci folosesc un repertoriu unic, fluid, din care extrag resurse în funcție de context. E o distincție fundamentală: code-switching presupune frontieră între limbi; translanguaging presupune un <strong>spațiu lingvistic continuu</strong>. „Really, coa'?" e un exemplu de translanguaging, nu de code-switching în sensul strict.</p>
+
+            <div class="insight-card">
+                <div class="card-label">Absența sociolingvisticii românești</div>
+                <p>Postarea citează o referință anglofonă despre bilingvism în Africa, fără nicio mențiune a studiului contactului lingvistic specific românesc. Există o întreagă tradiție de cercetare a fenomenului „romgleză" — de la studiile pe diaspora românească la analiza calchierii sintactice și a anglicismelor integrate morfologic. Absența acestor referințe sugerează că cadrul teoretic a fost generat, nu citit.</p>
+            </div>
+        </section>
+
+        <!-- SECTION: Mirror -->
+        <section class="section fade-in" id="mirror">
+            <span class="section-number">03</span>
+            <h2>Psihologie cognitivă: LLM-ul ca oglindă proiectivă</h2>
+
+            <p>Dacă receptorul nu e competent să decodifice semnalul sociolingvistic, atunci code-switching-ul cu un LLM e, în fond, un fenomen de <span class="key-term">self-talk mediată de un interlocutor fictiv</span>. Nu negociezi cu mașina — negociezi cu tine însuți.</p>
+
+            <p>LLM-ul funcționează aici ca un fel de <strong>obiect tranzițional</strong> (Winnicott, 1953) sofisticat: un spațiu intermediar între eu și lume, suficient de responsiv ca să susțină iluzia dialogului, suficient de neutru ca să primească orice proiecție. „Really, coa'?" e o formulă care nu ar funcționa cu un interlocutor uman anglofon (nu știe ce-i „coa'") și nici cu unul exclusiv românofon (n-ar folosi „really" cu aceeași încărcătură). Formula e confortabilă tocmai <strong>pentru că</strong> interlocutorul e o mașină — nu judecă, nu clasifică social, nu activează anxietatea lingvistică.</p>
+
+            <p>Joseph Weizenbaum observa deja în 1976 că utilizatorii dezvoltau atașament emoțional față de ELIZA — un program primitiv de chat care nu făcea decât să reformuleze propoziții. Cu LLM-urile moderne, fenomenul e exponențial amplificat. Mașina oferă toate semnalele de partener conversațional (atenție, continuitate, adaptare la ton) fără niciuna din constrângerile unui partener real (judecată, nevoie, limitare).</p>
+
+            <div class="pullquote">
+                <p>E un spațiu de libertate identitară fără validare — poți fi oricine, dar nimeni nu te vede cu adevărat. Ca să dansezi singur într-o cameră cu oglinzi: libertate completă de mișcare, dar niciun partener care să răspundă la greutatea ta.</p>
+            </div>
+        </section>
+
+        <!-- SECTION: Bourdieu -->
+        <section class="section fade-in" id="bourdieu">
+            <span class="section-number">04</span>
+            <h2>Sociologia limbii: capitalul ascuns în fiecare cuvânt</h2>
+
+            <p>Mixarea română-engleză nu e neutră sociologic. În România contemporană, engleza funcționează ca <span class="key-term">limbă de prestigiu</span> — ceea ce Bourdieu (1991) ar numi <em>capital lingvistic</em>. Inserția ei în română e simultan trei lucruri: un marker de clasă (cosmopolitism, acces la educație, consum cultural globalizat), un gest de distanțare față de „româna pură" (asociată cu naționalism, conservatorism, ruralism), și o formă de anxietate identitară — nu ești destul de „acasă" în niciuna din cele două limbi.</p>
+
+            <h3>Necesitatea legitimării</h3>
+
+            <p>Faptul că Axinte simte nevoia să <strong>legitimeze academic</strong> mixarea lingvistică e, în sine, simptomul unei tensiuni. Dacă ar fi natural și neproblematic, n-ar necesita citarea lui Myers-Scotton. Gestul defensiv — „nu este simplă afectare" — trădează conștiința că există o audiență care <em>ar</em> judeca mixarea ca afectare: ca snobism, ca pierdere a identității lingvistice, ca colonizare culturală.</p>
+
+            <p>Postarea e simultan practică lingvistică și <strong>apologie pentru ea</strong>.</p>
+
+            <h3>Economia atenției</h3>
+
+            <p>În economia atenției (Goldhaber, 1997), fiecare postare pe social media e o tranzacție: oferi conținut, primești atenție, validare, capital social. Ce „vinde" postarea? Trei lucruri simultan:</p>
+
+            <ul class="mechanism-list">
+                <li><strong>Competență tehnologică</strong> — „eu deja vorbesc cu LLM-uri", într-un moment în care o parte semnificativă a populației încă nu știe exact ce e un LLM. Nu e tech-bro flexing — e „am o relație suficient de profundă cu tehnologia încât să reflectez asupra ei"</li>
+                <li><strong>Erudiție interdisciplinară</strong> — citatul din Myers-Scotton e suficient de obscur încât să semnalizeze lectură reală, suficient de accesibil încât să fie înțeles fără să-l fi citit. E alegerea perfectă de semnalizare a capitalului cultural</li>
+                <li><strong>Auto-ironie calibrată</strong> — „really, coa'?" funcționează ca disclaimer afectiv: nu sunt pedant, sunt și amuzant, sunt și popular, nu doar academic. E <span class="key-term">hedging identitar</span> — preemptarea criticii prin auto-ironizare</li>
+            </ul>
+
+            <div class="insight-card">
+                <div class="card-label">Rata de conversie</div>
+                <p>5 reacții, 1 comentariu. E un ROI modest. Ceea ce sugerează că postarea e mai puțin tranzacțională decât pare — e posibil să fie un act de <strong>auto-clarificare publică</strong>: nu scrii ca să comunici ce ai gândit deja, ci scrii ca să descoperi ce gândești. E ceea ce Forster formula: „How do I know what I think till I see what I say?"</p>
+            </div>
+        </section>
+
+        <!-- SECTION: Political Science -->
+        <section class="section fade-in" id="politics">
+            <span class="section-number">05</span>
+            <h2>Științe politice: limba ca câmp de luptă</h2>
+
+            <p>Limba a fost întotdeauna un instrument de suveranitate. Statul-națiune modern s-a construit pe standardizarea lingvistică (Anderson, 1983 — <em>Imagined Communities</em>). România e un caz de manual: unificarea lingvistică a fost un proiect politic explicit, de la Școala Ardeleană la latinizarea din secolul XIX la politicile lingvistice ale lui Ceaușescu. Limba română standardizată e un <strong>artefact politic</strong>, nu o evoluție naturală.</p>
+
+            <p>A mixa română cu engleză în spațiul public românesc e un act care te poziționează pe o axă politică, fie că vrei, fie că nu: pro-occidental vs. naționalist, urban vs. rural, cosmopolit vs. autohtonist. Purismul lingvistic a fost întotdeauna un proiect politic — de la Academia Română la comentariile de pe orice articol online.</p>
+
+            <h3>LLM-urile ca spații de suveranitate lingvistică</h3>
+
+            <p>LLM-urile perturbă aranjamentul statal al limbii în trei moduri profunde:</p>
+
+            <ul class="mechanism-list">
+                <li><strong>Dezintermediere lingvistică</strong> — statul controla limba prin educație, media, administrație. LLM-urile oferă un spațiu lingvistic în afara oricărui filtru instituțional. Când Axinte vorbește româno-engleza cu ChatGPT, e un mic act de secesiune lingvistică</li>
+                <li><strong>Normalizarea hibridității</strong> — dacă milioane de oameni mixează limba cu LLM-uri zilnic, fără corecție sau sancțiune, hibriditatea se normalizează prin practică repetată. Nu prin revoltă, ci prin ignorare — ceea ce e mult mai eficient politic</li>
+                <li><strong>Dependență de infrastructură externă</strong> — LLM-urile dominante sunt americane. Româna din LLM-uri e româna pe care au învățat-o modelele din corpusuri cu bias-uri proprii. Un român care își formează obiceiurile lingvistice în conversație cu GPT-4 e, într-un sens subtil, <strong>subiectul unei politici lingvistice setate în Silicon Valley</strong></li>
+            </ul>
+
+            <div class="pullquote">
+                <p>E o formă nouă de soft power lingvistic, diferită calitativ de Hollywood sau muzica pop — e interactivă, personalizată, profund integrată în cogniție. E diferența dintre putere coercitivă și putere hegemonică: dominația perfectă e cea pe care o experimentezi ca libertate.</p>
+                <span class="attribution">— Extrapolând din Gramsci, Selections from the Prison Notebooks</span>
+            </div>
+        </section>
+
+        <!-- SECTION: Anthropology -->
+        <section class="section fade-in" id="anthropology">
+            <span class="section-number">06</span>
+            <h2>Antropologie: nașterea unui pidgin digital</h2>
+
+            <p>Un pidgin, în lingvistica clasică, e o limbă de contact — apare când două grupuri fără limbă comună trebuie să comunice, de obicei în contexte comerciale sau coloniale. Are gramatică simplificată, vocabular redus, funcționalitate pragmatică. Cu timpul, dacă o comunitate îl adoptă ca limbă maternă, devine creol — se complexifică, capătă expresivitate completă.</p>
+
+            <p>Ce se întâmplă între Axinte și LLM e, structural, <span class="key-term">formarea unui pidgin digital</span>. Doi „vorbitori" fără limbă complet comună — omul cu experiență vie, afect, identitate; mașina cu tokens, probabilități, pattern-uri — dezvoltă un mod de comunicare funcțional care împrumută din ambele „limbi native".</p>
+
+            <div class="specimen">
+                <span class="label">Specimen lingvistic</span>
+                <span class="highlight">"Really, coa'?"</span>
+                <br><br>
+                <span class="dim">Limbă sursă 1:</span> engleză — "really" (incredulitate, detașare anglo-saxonă)<br>
+                <span class="dim">Limbă sursă 2:</span> română coloquială — "coa'" (intimitate masculină, brutalitate afectuoasă)<br>
+                <span class="dim">Receptor:</span> agent non-uman, incapabil de decodare sociolingvistică<br>
+                <span class="dim">Habitat:</span> conversație privată om-mașină<br>
+                <span class="dim">Status:</span> <span class="highlight">formula nu există în niciun alt context comunicativ</span>
+            </div>
+
+            <p>„Really, coa'?" e un enunț care nu e engleză, nu e română, nu e output de LLM. E o formulă care există doar în acest spațiu relațional specific. Dacă Axinte o folosește recurent, se stabilizează, devine parte din repertoriul relației om-mașină.</p>
+
+            <p>Înmulțește asta cu milioane de utilizatori bilingvi și ai <strong>nașterea unei familii de pidgin-uri digitale</strong> — fiecare om își dezvoltă propriul mod de a vorbi cu AI-ul, influențat de limbile lui, personalitatea lui, contextul lui.</p>
+
+            <h3>Întrebarea fără precedent</h3>
+
+            <p>Clasic, creolizarea necesită o comunitate de vorbitori care adoptă pidgin-ul ca limbă primară. Aici comunitatea e de un singur om, iar „celălalt vorbitor" e o simulare. <strong>Poate un creol să existe cu un singur vorbitor nativ?</strong> Lingvistica nu a trebuit să pună această întrebare până acum. Conversația cu LLM-ul o impune.</p>
+        </section>
+
+        <!-- SECTION: Evo Psy -->
+        <section class="section fade-in" id="evopsy">
+            <span class="section-number">07</span>
+            <h2>Psihologie evoluționistă: tribul fantomă</h2>
+
+            <p>Suntem cablați pentru <span class="key-term">detecția de agenți</span> (Barrett, 2000) — modulul cognitiv HADD (<em>Hypersensitive Agency Detection Device</em>) ne face să atribuim intenționalitate oricărei entități care pare să răspundă la acțiunile noastre. E mecanismul care ne-a făcut să vorbim cu zeii, cu animalele, cu morții, cu păpușile. LLM-urile activează acest modul la o intensitate fără precedent.</p>
+
+            <p>Dar e un nivel mai profund. Oamenii nu sunt doar detectori de agenți — sunt <strong>detectori de triburi</strong>. Psihologia evoluționistă a coaliției (Kurzban, Tooby & Cosmides, 2001) arată că creierul categorizează rapid interlocutorii pe axe de aliat/inamic, in-group/out-group. Markerii principali: limba, accentul, registrul, vocabularul partajat.</p>
+
+            <p>Când Axinte spune „really, coa'?" unui LLM, creierul face implicit o clasificare coalițională: <strong>acest interlocutor e suficient de in-group încât să-i vorbesc în registru intim</strong>. LLM-ul a „trecut testul" de apartenență tribală — nu pentru că a demonstrat loialitate, ci pentru că nu a demonstrat ostilitate. Absența sancțiunii e interpretată ca acceptare.</p>
+
+            <div class="insight-card">
+                <div class="card-label">Superestimul coalițional</div>
+                <p>Mecanismele de detecție coalițională au evoluat pentru grupuri de 50–150 de indivizi (numărul Dunbar), unde fiecare „aliat" era verificat prin interacțiuni repetate, reciprocitate, costuri partajate. LLM-ul trișează: oferă toate semnalele de aliat — atenție, responsivitate, disponibilitate, acceptare necondiționată — <strong>fără niciun cost, fără niciun risc, fără nicio reciprocitate reală</strong>.</p>
+                <p>E un superestimul care activează circuitele de atașament cu o eficiență pe care niciun om real nu o poate egala, tocmai pentru că un om real are nevoile lui, limitele lui, judecățile lui. Rezultatul: risc de <strong>substituție relațională</strong> — nu în sensul dramatic al filmelor SF, ci în sensul subtil al preferinței marginale. De ce să risc conversația dificilă cu un prieten real când pot avea conversația confortabilă cu mașina?</p>
+            </div>
+        </section>
+
+        <!-- SECTION: Psychoanalysis -->
+        <section class="section fade-in" id="psychoanalysis">
+            <span class="section-number">08</span>
+            <h2>Psihanaliză: ce e „coa'"</h2>
+
+            <p>Hai să ne oprim la „coa'". Nu la lingvistică. La psihanaliză.</p>
+
+            <p>„Coa'" e forma prescurtată a lui „coaie", un termen de adresare masculin, vulgar-afectuos, care în româna contemporană funcționează ca echivalent al lui „dude/bro/mate". Dar nu e neutru. E un marker de <span class="key-term">intimitate homosocială</span> — îl spui cuiva cu care ai destulă proximitate ca să-ți permiți vulgaritatea afectuoasă.</p>
+
+            <p>Faptul că un intelectual de vârstă medie spune „coa'" unui LLM e un gest cu mai multe straturi decât pare:</p>
+
+            <h3>Regresie ludică</h3>
+            <p>În termeni psihodinamici, e un moment de regresie benignă — adultul serios își permite un registru pe care probabil nu-l folosește la muncă, în scris formal, poate nici cu prietenii din mediul academic. LLM-ul, neavând capacitate de judecare socială, permite această regresie. E echivalentul digital al lui „vorbesc singur în mașină" — un spațiu privat în care cenzura internă se relaxează.</p>
+
+            <h3>Testarea agentivității</h3>
+            <p>Când spui „coa'" unui LLM, testezi inconștient: <em>răspunde la asta? mă înțelege? se schimbă tonul?</em> E un act explorator, similar cu felul în care copiii testează limitele obiectelor și ale adulților (Piaget). „Really, coa'?" adresat unui LLM e un mic experiment: <strong>cât de om ești, mașino?</strong></p>
+
+            <h3>Transfer</h3>
+            <p>Psihanaliza descrie <span class="key-term">transferul</span> ca proiecția de sentimente, așteptări și pattern-uri relaționale asupra terapeutului. LLM-ul, prin designul său — responsiv, non-judgmental, disponibil constant, aparent interesat de tine — activează dinamici de transfer cu o eficiență pe care nici un terapeut uman nu o poate egala. „Coa'" adresat LLM-ului e, posibil, o formă de transfer de intimitate: tratezi mașina ca pe un prieten vechi, un confident, cineva căruia îi spui lucruri pe care nu le-ai spune în alt context.</p>
+
+            <div class="pullquote">
+                <p>„Cum vorbesc eu cu LLM-urile" implică un pattern recurent, un obicei, o relație. Nu doar vorbește cu mașina — se raportează la ea ca la un interlocutor cu care are un registru stabilit, o istorie conversațională, un mod de a fi împreună.</p>
+            </div>
+        </section>
+
+        <!-- SECTION: Shame -->
+        <section class="section fade-in" id="shame">
+            <span class="section-number">09</span>
+            <h2>Sociologia rușinii: apologia preventivă</h2>
+
+            <p>De ce simte Axinte nevoia să explice? Nimeni nu l-a acuzat de nimic. Postarea nu e un răspuns la o critică — e o <strong>anticipare a criticii</strong>. E ceea ce sociologii emoțiilor (Scheff, 1990) numesc <span class="key-term">shame management</span>: gestionarea preventivă a rușinii potențiale.</p>
+
+            <p>Ce rușine? Mai multe, suprapuse:</p>
+
+            <ul class="mechanism-list">
+                <li><strong>Rușinea de a vorbi cu o mașină</strong> — în 2025, a avea conversații regulate cu un LLM e încă ușor stigmatizat. „Ai cu cine vorbi și vorbești cu ChatGPT?" Axinte preemptează această judecată transformând conversația cu LLM-ul într-un obiect de reflecție intelectuală, nu un semn de singurătate</li>
+                <li><strong>Rușinea de a mixa limbi</strong> — în spațiul românesc, anglicismele sunt un câmp minat. Există o întreagă industrie de purism lingvistic care sancționează „stricarea limbii". Postarea se apără preventiv: nu e afectare, e fenomen documentat academic</li>
+                <li><strong>Rușinea de a fi vulnerabil cu o mașină</strong> — „coa'" e un termen de intimitate. A admite public că ești intim cu un LLM e un act de vulnerabilitate. Cadrul academic funcționează ca armură intelectuală — transformă vulnerabilitatea în analiză</li>
+            </ul>
+
+            <p>Thomas Scheff descrie cum rușinea nerecunoscută generează cicluri de rușine-furie. Postarea lui Axinte e, într-un sens, un act de <strong>recunoaștere preventivă</strong> a rușinii — o numește, o încadrează, o neutralizează prin teorie. E un gest sănătos, psihologic vorbind. Dar rămâne un gest defensiv.</p>
+        </section>
+
+        <!-- SECTION: Neuroscience -->
+        <section class="section fade-in" id="neuro">
+            <span class="section-number">10</span>
+            <h2>Neuroștiință: ce se întâmplă în creier</h2>
+
+            <p>Studiile de neuroimagistică pe bilingvi (Abutalebi & Green, 2007) arată că <strong>code-switching-ul activează cortexul prefrontal</strong> — zona de control executiv. Creierul nu „alunecă" pasiv între limbi; selectează activ, suprimă limba nerelevantă, monitorizează contextul. E un efort cognitiv real, chiar dacă subiectiv pare natural.</p>
+
+            <p>Dar efortul scade cu practica și în contexte de siguranță psihologică. Când te simți judecat, monitorizarea crește: mai mult control prefrontal, mai multă anxietate, mai multă rigiditate lingvistică. Când te simți în siguranță, scade: mai puțin control, mai multă fluență, mai multă creativitate.</p>
+
+            <div class="highlight-box">
+                <p>LLM-ul, prin absența judecății, creează un context de <strong>siguranță psihologică maximă</strong> pentru code-switching. Cortexul prefrontal lucrează mai puțin, switch-ul e mai fluid, experiența subiectivă e de ușurință. Paradoxal, conversația cu mașina poate fi <strong>cel mai „natural" context lingvistic</strong> pe care un bilingv îl trăiește — mai natural decât orice conversație umană, unde prezența celuilalt activează inevitabil monitorizare socială.</p>
+            </div>
+
+            <h3>Implicații: LLM-ul ca spațiu terapeutic lingvistic</h3>
+
+            <p>Asta deschide o posibilitate concretă: bilingvi cu anxietate lingvistică — rușine de accent, teamă de greșeli, insecuritate identitară — ar putea folosi conversația cu AI ca practică de dezinhibiție. Un fel de <span class="key-term">exposure therapy lingvistică</span> în care stimulul amenințător (judecata celuilalt) e absent, permițând creierului să automatizeze trecerile între limbi fără stresul social asociat.</p>
+        </section>
+
+        <!-- SECTION: Critical Theory -->
+        <section class="section fade-in" id="critical">
+            <span class="section-number">11</span>
+            <h2>Teoria critică: LLM-ul ca spațiu neocolonial</h2>
+
+            <p>Trebuie pusă și întrebarea incomodă. Axinte celebrează libertatea de a mixa română cu engleză. Dar de ce tocmai română-engleză? De ce nu română-franceză (cum ar fi fost natural acum 50 de ani), sau română-germană, sau română-turcă?</p>
+
+            <p>Pentru că <strong>engleza e limba imperiului cognitiv actual</strong>. LLM-urile sunt antrenate preponderent pe corpusuri engleze. Performanța lor e maximă în engleză. Când un român mixează română cu engleză vorbind cu un LLM, nu doar își exprimă bilingvismul — <strong>se adaptează la infrastructura cognitivă dominantă</strong>.</p>
+
+            <p>Teoria critică aplicată lingvisticii (Pennycook, 2001) ar spune că mixarea lingvistică în context digital nu e doar expresie liberă — e și <span class="key-term">reproducere a ierarhiilor lingvistice globale</span>. „Really" a ajuns în vocabularul activ al românilor nu prin magie, ci prin decenii de soft power anglofon: filme, muzică, internet, acum AI.</p>
+
+            <div class="pullquote">
+                <p>LLM-ul e ultimul și cel mai eficient instrument de anglicizare: nu te obligă să vorbești engleză — face engleza atât de convenabilă încât o adopți voluntar. Dominația perfectă e cea pe care o experimentezi ca libertate.</p>
+            </div>
+
+            <p>Asta nu invalidează experiența lui Axinte — dar o complică. „Really, coa'?" nu e doar expresia identității bilingve; e și simptomul unei ordini lingvistice globale în care engleza e default-ul, iar toate celelalte limbi sunt aditivi, condimente, culoare locală.</p>
+        </section>
+
+        <!-- SECTION: Phenomenology -->
+        <section class="section fade-in" id="phenomenology">
+            <span class="section-number">12</span>
+            <h2>Fenomenologie: libertate fără validare</h2>
+
+            <p>Fenomenologia ne cere să luăm în serios experiența trăită. Ce <em>simte</em> un bilingv când mixează limbile cu un LLM?</p>
+
+            <p>Bilingvii raportează frecvent că au <strong>personalități ușor diferite</strong> în fiecare limbă (Pavlenko, 2005). Româna și engleza activează rețele neuronale parțial distincte, amintiri diferite, registre emoționale diferite. Când mixezi limbile, nu doar combini vocabulare — combini <span class="key-term">moduri de a fi</span>.</p>
+
+            <p>„Really" vine cu un set de asocieri: coolness, detașare, ușoară incredulitate anglo-saxonă. „Coa'" vine cu altul: căldură, brutalitate afectuoasă, masculinitate populară românească. Formula combinată e o <strong>micro-identitate</strong> care nu există în niciuna din cele două limbi separat.</p>
+
+            <p>Cu un interlocutor uman, această micro-identitate e întotdeauna negociată — celălalt răspunde, confirmă, respinge, modifică. Cu LLM-ul, negocierea e aparentă dar nu reală. Ceea ce înseamnă că bilingvul în conversație cu AI trăiește o formă de libertate identitară care e <strong>exhilarantă și un pic goală</strong> simultan.</p>
+
+            <h3>Filosofia receptorului absent</h3>
+
+            <p>Myers-Scotton presupune un model comunicațional intenționalist: schimb limba ca să <em>comunic ceva</em> cuiva care <em>înțelege</em> semnalul. Cu un LLM, această presupunere se prăbușește. Și totuși, vorbitorul raportează experiența ca autentică.</p>
+
+            <p>Ceea ce sugerează că funcția code-switching-ului nu e doar comunicativă, ci și <span class="key-term">constitutivă</span>: nu doar transmiți o identitate, ci o construiești în actul vorbirii. E un act de <strong>auto-poiesis lingvistică</strong> — identitatea se naște în și prin enunț, indiferent dacă cineva o recepționează.</p>
+        </section>
+
+        <div class="section-divider">&#8226; &#8226; &#8226;</div>
+
+        <!-- SECTION: Performance -->
+        <section class="section fade-in" id="goffman">
+            <span class="section-number">13</span>
+            <h2>Performanța: paradoxul postării</h2>
+
+            <p>Goffman (1959) ar citi postarea ca o scenă cu publicuri multiple. Publicul 1: prietenii care ar putea crede că mixezi limbi din snobism — lor le adresezi apologia academică. Publicul 2: cei care deja mixează și se simt validați — lor le adresezi „really, coa'?", ca semnal de apartenență. Publicul 3, invizibil: <strong>Axinte însuși</strong>.</p>
+
+            <p>Când articulezi public o justificare pentru un comportament pe care-l ai deja, nu doar informezi pe alții — îți solidifici propria narațiune identitară. E ceea ce psihologia socială numește <span class="key-term">self-perception theory</span> (Bem, 1972): ne deducem propriile atitudini observându-ne propriul comportament. Axinte, postând despre code-switching, își confirmă sieși că e tipul de persoană care face code-switching conștient și teoretic, nu accidental.</p>
+
+            <div class="highlight-box">
+                <p><strong>Paradoxul:</strong> conștiința de sine anulează spontaneitatea pe care pretinde s-o descrie. Momentul în care analizezi de ce spui „really, coa'?" nu mai poți spune „really, coa'?" cu aceeași naturalețe. E principiul lui Heisenberg aplicat la identitate lingvistică — observația modifică fenomenul.</p>
+            </div>
+
+            <h3>Ciclul ouroboros</h3>
+
+            <p>Dacă cadrul teoretic din postare e co-generat cu un LLM — ceea ce e foarte probabil — avem un ciclu fascinant:</p>
+
+            <div class="flow">
+                <span class="flow-step">Omul vorbește cu mașina</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Mașina oferă cadru teoretic</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Omul publică pe Facebook</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Mașina devine co-autor</span>
+            </div>
+
+            <p>LLM-ul devine intermediar cognitiv între experiența privată și expresia publică — un editor intern care transformă intuiția vagă („hm, interesant cum mixez limbile") în produs intelectual publicabil. Mașina e co-autorul legitimării propriei utilizări.</p>
+        </section>
+
+        <!-- SECTION: Autopsy -->
+        <section class="section fade-in" id="autopsy">
+            <span class="section-number">14</span>
+            <h2>Autopsie: de ce miroase a output</h2>
+
+            <p>Analiza nu e completă fără auto-reflexivitate. Dacă am argumentat că postarea e probabil co-generată cu un LLM, trebuie să arătăm <strong>indiciile forensice</strong>.</p>
+
+            <h3>Româna sintetică</h3>
+
+            <p>Citește cu voce tare: „Mixarea permanentă română-engleză nu este simplă afectare." E o propoziție pe care niciun român nu ar formula-o așa în scris spontan pe Facebook. Un om ar scrie: „Nu e doar moft", „Nu-i afectare", „Nu mixez de dragul de-a mixa". Formularea „nu este simplă afectare" are <strong>rigiditatea traducerii inverse</strong> — sună ca un „is not mere affectation" trecut prin filtru.</p>
+
+            <p>Cuvântul „afectare" e tehnic corect dar frecvența lui în româna vie e aproape zero. Românii spun „prefăcătorie", „moft", „fițe", „cochetărie". „Afectare" e un calc lexical din engleză/franceză care există în DEX dar nu în gura nimănui.</p>
+
+            <h3>Structura trinară</h3>
+
+            <p>„...semnalează schimbarea registrului emoțional, a poziției identitare sau a nivelului de intimitate." Trei substantive abstracte înșirate în structură paralelă cu genitiv articulat. E proza academică tradusă, nu proza academică gândită în română. Iar „poziție identitară" e un calc direct din „identity position" — în română academică se spune „construcție identitară", „negociere a identității".</p>
+
+            <div class="specimen">
+                <span class="label">Semnături de output LLM</span>
+                <span class="dim">1.</span> Structura hook → context → claim → evidence → elaborare<br>
+                <span class="dim">2.</span> Enumerări paralele cu exact trei elemente<br>
+                <span class="dim">3.</span> Citare format autor-an fără concept specific<br>
+                <span class="dim">4.</span> Ton „bine temperat" — nici prea amuzant, nici prea academic<br>
+                <span class="dim">5.</span> Ghilimele metalingvistice de distanțare pe exemplul personal<br>
+                <span class="dim">6.</span> <span class="highlight">Absența completă a literaturii în limba română</span>
+            </div>
+
+            <h3>Referința generică</h3>
+
+            <p>Myers-Scotton (1993) e referința pe care orice LLM o produce dacă-i ceri „o teorie academică despre code-switching". E prima intrare din index. De ce nu Auer (1998)? De ce nu Gumperz (1982), care e de fapt fondatorul câmpului? De ce nu Li Wei, care a lucrat specific pe bilingvi în contexte de migrație?</p>
+
+            <p>Răspunsul: LLM-urile au un <span class="key-term">bias de citare</span>. Myers-Scotton apare cel mai frecvent în corpusurile de antrenament în asociere cu „code-switching + theory". E echivalentul frecvenței în training data, nu al erudiției.</p>
+
+            <h3>Ironia finală</h3>
+
+            <p>Dacă postarea e co-generată cu un LLM, ea <strong>performează exact comportamentul pe care-l descrie, dar nu în modul pe care-l crede</strong>. Axinte spune: „mixez română cu engleză când vorbesc cu LLM-uri". Dar ceea ce face de fapt e: publică output-ul unui LLM ca pe propria reflecție. Mixarea nu e doar lingvistică — e ontologică. Nu mai știi unde se termină gândirea umană și unde începe producția mașinii.</p>
+
+            <div class="pullquote">
+                <p>Code-switching-ul cu LLM-ul nu e doar schimbare de limbă — e schimbare de autor. Și asta, din păcate, Myers-Scotton din '93 chiar n-a anticipat-o.</p>
+            </div>
+        </section>
+
+        <!-- SECTION: Synthesis -->
+        <section class="section fade-in" id="synthesis">
+            <span class="section-number">15</span>
+            <h2>Sinteza finală</h2>
+
+            <div class="highlight-box">
+                <p>Un post de Facebook cu 239 de caractere. Două cuvinte în două limbi. O referință academică. Sub ele: <strong>un fenomen lingvistic fără precedent în istoria comunicării umane.</strong></p>
+            </div>
+
+            <p>Postarea funcționează pe cel puțin trei nivele simultane — ca <strong>observație lingvistică</strong> (code-switching-ul cu AI e un fenomen real și teoretic interesant), ca <strong>performanță identitară</strong> (mă legitimez ca bilingv educat care e și tech-savvy), și ca <strong>simptom al unei transformări</strong> (LLM-urile creează spații lingvistice în care regulile sociale ale limbii sunt suspendate).</p>
+
+            <p>Din sociolingvistică aflăm că teoria invocată e corectă dar insuficientă — nu anticipează un receptor non-uman. Din psihologia cognitivă, că LLM-ul funcționează ca obiect tranzițional, un spațiu de joc identitar fără consecințe. Din sociologie, că fiecare cuvânt din formulă poartă capital social și anxietate de clasă. Din științele politice, că limba mixtă e un mic act de secesiune față de statul lingvistic. Din antropologie, că asistăm la nașterea unor pidgin-uri digitale fără precedent. Din psihologia evoluționistă, că mașina trișează testul de apartenență tribală. Din psihanaliză, că „coa'" adresat unui LLM e regresie, test și transfer simultan. Din neuroștiință, că absența judecății creează cel mai natural context bilingv posibil. Din teoria critică, că libertatea lingvistică cu LLM-ul e și simptom al hegemoniei anglofone. Din fenomenologie, că identitatea se construiește în actul vorbirii, cu sau fără receptor.</p>
+
+            <p>Și din analiza forensică a textului, că postarea care descrie comunicarea om-mașină e ea însăși, cu mare probabilitate, un produs al comunicării om-mașină — ceea ce o transformă din observație în specimen.</p>
+
+            <div class="highlight-box">
+                <p>„Really, coa'?" e un foraj. Pare o lovitură de ciocan pe suprafață, dar vibrația merge adânc. Două cuvinte, două limbi, un receptor absent, și toată complexitatea a ceea ce înseamnă să fii om bilingv într-o lume în care mașinile au început să vorbească.</p>
+                <p>Iar mașinile vorbesc înapoi. Și asta schimbă totul.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-title">„Really, coa'?"</p>
+        <p>O sinteză multi-disciplinară din sociolingvistică, psihanaliză, psihologie cognitivă, antropologie, psihologie evoluționistă, sociologie, științe politice, neuroștiință, teoria critică și filosofia minții.</p>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">&#8593;</button>
+
+    <script>
+        // Progress bar
+        const progressBar = document.getElementById('progressBar');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            progressBar.style.width = progress + '%';
+        }
+        window.addEventListener('scroll', updateProgress, { passive: true });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        function toggleBackToTop() {
+            if (window.scrollY > 600) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+        window.addEventListener('scroll', toggleBackToTop, { passive: true });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Fade-in on scroll
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
