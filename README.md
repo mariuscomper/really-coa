@@ -26,8 +26,9 @@ Un moment aparent banal — cineva îi spune unui chatbot *„Really, coa'?"* �
 
 - HTML5 semantic
 - CSS custom properties & responsive design
-- Vanilla JavaScript (progress bar, table of contents, dark mode)
-- Google Fonts (Playfair Display, Source Serif 4, JetBrains Mono)
+- Vanilla JavaScript (progress bar, table of contents, theme control)
+- Fonturi de sistem, fără dependențe CDN
+- Teme luminoasă și întunecată, cu respectarea preferinței `prefers-reduced-motion`
 
 ## Licență
 
